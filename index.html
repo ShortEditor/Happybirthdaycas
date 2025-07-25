@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Happy Birthday Chethan!</title>
 
-  <!-- Fonts -->
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
@@ -16,7 +16,7 @@
 
     body {
       height: 100vh;
-      background: radial-gradient(circle at top, #0f0c29, #302b63, #24243e);
+      background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
       color: white;
       font-family: 'Rajdhani', sans-serif;
       display: flex;
@@ -30,50 +30,27 @@
 
     h1 {
       font-family: 'Pacifico', cursive;
-      font-size: 3.5em;
+      font-size: 3.2em;
       color: #ff66c4;
-      text-shadow: 0 0 10px #ff66c4, 0 0 20px #ff66c4;
-      animation: fadeInDown 1.5s ease-out forwards;
+      text-shadow: 0 0 10px #ff66c4, 0 0 20px #ff99dd;
+      margin-bottom: 10px;
     }
 
     h2 {
-      font-size: 1.5em;
+      font-size: 1.3em;
       color: #f0f0f0;
-      margin-top: 10px;
-      font-weight: 400;
-      animation: fadeIn 3s ease-out forwards;
+      margin-bottom: 30px;
     }
 
     .card {
       background: rgba(255,255,255,0.1);
       border: 2px solid rgba(255,255,255,0.3);
       border-radius: 20px;
-      padding: 30px 40px;
-      margin-top: 40px;
+      padding: 30px;
+      margin-top: 20px;
       box-shadow: 0 0 20px rgba(255,255,255,0.2);
-      font-size: 1.1em;
-      animation: zoomIn 2s ease;
-      transition: transform 0.3s ease;
-    }
-
-    .card:hover {
-      transform: scale(1.03);
-      box-shadow: 0 0 30px rgba(255,255,255,0.3);
-    }
-
-    @keyframes fadeInDown {
-      from {opacity: 0; transform: translateY(-50px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
-
-    @keyframes fadeIn {
-      from {opacity: 0;}
-      to {opacity: 1;}
-    }
-
-    @keyframes zoomIn {
-      from {opacity: 0; transform: scale(0.8);}
-      to {opacity: 1; transform: scale(1);}
+      font-size: 1em;
+      max-width: 500px;
     }
 
     .confetti {
@@ -83,7 +60,7 @@
       height: 10px;
       background: red;
       opacity: 0.8;
-      animation: fall 5s infinite;
+      animation: fall 5s linear infinite;
     }
 
     @keyframes fall {
@@ -99,55 +76,27 @@
       font-size: 0.9em;
       color: #aaa;
     }
-
-    button {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 8px;
-      background: #ff66c4;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-      font-family: 'Rajdhani', sans-serif;
-      z-index: 999;
-      box-shadow: 0 0 10px #ff66c4;
-    }
-
-    button:hover {
-      background: #ff3399;
-    }
   </style>
 </head>
-
 <body>
 
-  <!-- 🎵 Background Music -->
-  <audio id="bgMusic" loop>
-    <source src="https://cdn.pixabay.com/audio/2022/03/08/audio_f8b3b21833.mp3" type="audio/mp3">
+  <!-- Background Music -->
+  <audio id="bgMusic" autoplay loop>
+    <source src="birthdaysong.mp3" type="audio/mp3">
     Your browser does not support the audio element.
   </audio>
 
-  <!-- 🎶 Play Music Button -->
-  <button onclick="document.getElementById('bgMusic').play()">🎶 Play Music</button>
-
   <h1>Happy Birthday Chethan Sandesh 🎉</h1>
-  <h2>Wishing you endless joy, success & love always! 💫</h2>
+  <h2>Wishing you endless joy, success & love always!</h2>
 
   <div class="card">
-    <p>
-      You're more than just a brother — you're a force of inspiration, strength, and loyalty.<br><br>
-      This year, I hope you chase even bigger dreams and feel even more happiness.  
-      You deserve everything amazing this world has to offer.  
-      Keep shining, Chethan! 🚀
-    </p>
+    You're more than just a brother — you're a force of inspiration, strength, and loyalty.<br><br>
+    May this year bring more growth, crazy happiness, and blessings. Keep shining like the star you are. 🚀💫
   </div>
 
-  <footer>— With lots of love, Your Brother ❤️</footer>
+  <footer>— From your loving brother ❤️</footer>
 
-  <!-- 🎊 Confetti Generator -->
+  <!-- Confetti Animation -->
   <script>
     function createConfetti() {
       const confetti = document.createElement('div');
@@ -160,6 +109,15 @@
     }
 
     setInterval(createConfetti, 150);
+
+    // Ensure audio plays on first user interaction (browsers block autoplay with sound)
+    document.addEventListener('click', () => {
+      const audio = document.getElementById('bgMusic');
+      if (audio.paused) {
+        audio.play().catch(e => console.log('Autoplay blocked:', e));
+      }
+    }, { once: true });
   </script>
+
 </body>
 </html>
