@@ -95,9 +95,19 @@
       font-size: 0.9em;
       color: #aaa;
     }
+
+    audio {
+      display: none;
+    }
   </style>
 </head>
 <body>
+
+  <!-- 🎵 Working Background Music -->
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/audio/2022/03/08/audio_f8b3b21833.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
 
   <h1>Happy Birthday Chethan Sandesh 🎉</h1>
   <h2>Wishing you endless joy, success & love always! 💫</h2>
@@ -108,7 +118,7 @@
 
   <footer>With love — Your Brother ❤️</footer>
 
-  <!-- Confetti Generator -->
+  <!-- 🎊 Confetti Generator -->
   <script>
     function createConfetti() {
       const confetti = document.createElement('div');
